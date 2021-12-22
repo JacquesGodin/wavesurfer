@@ -1,0 +1,19 @@
+{
+  "name": "nextjs-wavesurfer",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post-update": "yarn upgrade --latest"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "wavesurfer.js": "5.1.0"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "description": ""
+}
