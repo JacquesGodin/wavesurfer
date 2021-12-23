@@ -6,10 +6,10 @@ const formWaveSurferOptions = (ref) => ({
   waveColor: "#eee",
   progressColor: "#0178FF",
   cursorColor: "OrangeRed",
-  barWidth: 3,
-  barRadius: 3,
+  barWidth: 1,
+  barRadius: 2,
   responsive: true,
-  height: 150,
+  height: 500,
   normalize: true,
   partialRender: true
 });
@@ -50,7 +50,7 @@ export default function IndexPage() {
     <div>
       <div id="waveform" ref={waveformRef} />
       <div className="controls">
-        <div onClick={handlePlayPause}>{!playing ? "Слушать" : "Пауза"}</div>
+        <div onClick={handlePlayPause}>{!playing ? "Playing" : "Pause"}</div>
       </div>
       <Link href={{ pathname: "/about" }}>xxx</Link>
     </div>

@@ -3,15 +3,16 @@ import { useEffect, useRef, useState } from "react";
 
 const formWaveSurferOptions = (ref) => ({
   container: ref,
-  waveColor: "#eee",
-  progressColor: "#0178FF",
+  waveColor: "#c203fc",
+  progressColor: "#cad9d9",
   cursorColor: "OrangeRed",
-  barWidth: 3,
-  barRadius: 3,
+  barWidth: 1,
+  barRadius: 1,
   responsive: true,
-  height: 150,
+  height: 300,
   normalize: true,
-  partialRender: true
+  maxCanvasWidth: 1000,
+  partialRender: false
 });
 
 export default function AboutPage() {
@@ -20,7 +21,7 @@ export default function AboutPage() {
   const [playing, setPlaying] = useState(false);
 
   const url =
-    "https://www.mfiles.co.uk/mp3-downloads/brahms-st-anthony-chorale-theme-two-pianos.mp3";
+    "https://gateway.pinata.cloud/ipfs/Qmdx1Wg8Kp49GV6LcwTRKaEFJNZdVMVgbDAht3PCXvwZ7f";
 
   useEffect(() => {
     create();
@@ -39,18 +40,28 @@ export default function AboutPage() {
     wavesurfer.current = WaveSurfer.create(options);
 
     wavesurfer.current.load(url);
+
+    
   };
+
+  const download = () => {
+    
+    console.log(wavesurfer.current.exportImage('image/png',1))
+    console.log("Saved")
+  }
 
   const handlePlayPause = () => {
     setPlaying(!playing);
     wavesurfer.current.playPause();
+    console.log("Play");
   };
   return (
     <div>
       <Link href="/some">About us</Link>
       <div id="waveform" ref={waveformRef} />
       <div className="controls">
-        <div onClick={handlePlayPause}>{!playing ? "Слушать" : "Пауза"}</div>
+        <div onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</div>
+        <div onClick={download}>{"Download"}</div>
       </div>
     </div>
   );
