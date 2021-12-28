@@ -8,8 +8,10 @@
     "post-update": "yarn upgrade --latest"
   },
   "dependencies": {
+    "base64-2-img": "^1.0.0",
     "next": "latest",
     "react": "^16.13.1",
+    "react-color": "^2.19.3",
     "react-dom": "^16.13.1",
     "wavesurfer.js": "5.1.0"
   },
