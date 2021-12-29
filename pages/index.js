@@ -5,6 +5,8 @@ import { TwitterPicker } from 'react-color';
 //import { imageToBase64, base64ToImage } from "base64-2-img";
 
 
+
+
 // Create the component color picker
 class Component extends React.Component {
   handleChangeComplete(color, event) {
@@ -25,6 +27,7 @@ const formWaveSurferOptions = (ref) => ({
   responsive: true,
   height: 500,
   normalize: true,
+  backgroundColor: 'white',
   partialRender: true
 });
 
@@ -56,6 +59,7 @@ const submitLink = async (event) => {
       responsive: true,
       height: 500,
       normalize: true,
+      backgroundColor: 'white',
       partialRender: true
     });
 
@@ -111,11 +115,19 @@ const submitLink = async (event) => {
     var image = new Image();
     image.src = wavesurfer.current.exportImage('image/png',1);
     document.body.appendChild(image);
+    //document.body.style = 'background: red;';
 
+    return (<a href={image} download>Click to download</a>)
   
   }
 
-
+  const MyButton = React.forwardRef(({ onClick, href }, ref) => {
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        Next
+      </a>
+    )
+  })
 
   return (
     
@@ -140,8 +152,12 @@ const submitLink = async (event) => {
     </form>
       <div className="controls">
         <div onClick={handlePlayPause}>{!playing ? "Playing" : "Pause"}</div>
-      </div>
+              </div>
       <div onClick={download}>{"Download"}</div>
+      <Link href="/combinatory" passHref>
+        <MyButton />
+      </Link>
+      
     </div>
   );
 }
