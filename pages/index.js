@@ -154,7 +154,7 @@ const submitLink = async (event) => {
         <div onClick={handlePlayPause}>{!playing ? "Playing" : "Pause"}</div>
               </div>
       <div onClick={download}>{"Download"}</div>
-      <Link href="/combinatory" passHref>
+      <Link href="/styletransfer" passHref>
         <MyButton />
       </Link>
       
